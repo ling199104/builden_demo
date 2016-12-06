@@ -1,0 +1,137 @@
+{% extends "bootstrap/base.html"  %}
+{% block html_attribs %} lang="zh_TW"{% endblock %}
+{% block title %}Flask{% endblock %}
+<!-- head -->
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="/static/img/favicon.png"  type='image/x-icon'/>
+<link rel="icon" href="/static/img/favicon.png" type="image/x-icon"/>
+<!-- Bootstrap Core CSS -->
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="/static/css/simple-sidebar.css" rel="stylesheet">
+
+<!-- metas -->
+{% block metas %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+<meta name="description" content="GG">
+<meta name="author" content="LingHanChen">
+{% endblock %}
+<!-- /metas -->
+
+{% endblock %}
+<!-- /head -->
+
+<!-- body -->
+{% block body %}
+
+<!-- navbar -->
+{% block navbar %}
+<div class="container">
+  <h2>Dynamic Tabs</h2>
+  <p>To make the tabs toggleable, add the data-toggle="tab" attribute to each link. Then add a .tab-pane class with a unique ID for every tab and wrap them inside a div element with class .tab-content.</p>
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+    <li><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+    <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
+    <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h3>HOME</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h3>Menu 1</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h3>Menu 2</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <h3>Menu 3</h3>
+      <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+<!-- /navbar -->
+
+<!-- content -->
+{% block content %}
+
+    <!-- wrapper -->
+    <div id="wrapper">
+        <!-- sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Build_En
+                    </a>
+                </li>
+                <li>
+                    <a href="#">影片1</a>
+                </li>
+                <li>
+                    <a href="#">影片2</a>
+                </li>
+                <li>
+                    <a href="#">影片3</a>
+                </li>
+                <li>
+                    <a href="#">影片4</a>
+                </li>
+                <li>
+                    <a href="#">影片5</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /sidebar-wrapper -->
+
+        <!-- page content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">影片選單</a>
+                        {% block page_content %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /page-content-wrapper -->
+    </div>
+    <!-- /wrapper -->
+
+    <!-- jQuery -->
+    <script src="/static/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+<!-- scripts -->
+{% block scripts %}
+{{  super() }}
+{{ moment.include_moment() }}
+{% endblock %}
+<!-- /scripts -->
+
+{% endblock %}
+<!-- /content -->
+
+{% endblock %}
+<!-- /body -->

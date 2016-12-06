@@ -1,0 +1,137 @@
+{% extends "bootstrap/base.html"  %}
+{% block html_attribs %} lang="zh_TW"{% endblock %}
+{% block title %}Flask{% endblock %}
+<!-- head -->
+{% block head %}
+{{  super() }}
+<link rel="shortcut icon" href="/static/img/favicon.png"  type='image/x-icon'/>
+<link rel="icon" href="/static/img/favicon.png" type="image/x-icon"/>
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<link href="/static/css/simple-sidebar.css" rel="stylesheet">
+
+<!-- metas -->
+{% block metas %}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+<meta name="description" content="GG">
+<meta name="author" content="LingHanChen">
+{% endblock %}
+<!-- /metas -->
+
+{% endblock %}
+<!-- /head -->
+
+<!-- content -->
+{% block body %}
+<body data-target="#navbar-spy" data-spy="scroll" >
+{% block navbar %}
+    <nav class="nav navbar-inverse navbar-fixed-top" id="navbar-spy" role="navigation" style="font-size:25px">
+        <div class="container-fluid">
+            <div class="navbar-header">
+            	<!-- RWD button -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                	<span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                </button>
+                <!-- /RWD button -->
+                <a class="navbar-brand" style="font-size:25px; 
+                padding-left:35px" href="http://build-en.ddns.net/"><span class="glyphicon glyphicon-home"></span> 首頁</a>
+            </div>
+            <!-- RWD content -->
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav" style="padding-left:103px;">
+			    <li class="active"><a data-toggle="tab" href="#home"><span class="glyphicon glyphicon-font"></span>  詞彙題  </a></li>
+			    <li><a data-toggle="tab" href="#menu1"><span class="glyphicon glyphicon-pencil"></span>  綜合測驗  </a></li>
+			    <li><a data-toggle="tab" href="#menu2"><span class="glyphicon glyphicon-edit"></span>  文意選填  </a></li>
+			    <li><a data-toggle="tab" href="#menu3"><span class="glyphicon glyphicon-align-justify"></span>  閱讀測驗  </a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Admin</a></li>
+                </ul>
+            </div>
+            <!-- /RWD content -->
+        </div>
+    </nav>
+{% endblock %}
+<!-- wrapper -->
+<div id="wrapper" style="padding-top: 55px">
+	<!-- sidebar -->
+	<div id="sidebar-wrapper">
+	    <ul class="sidebar-nav">
+	        <li class="sidebar-brand">
+	            <a href="#"><span class="glyphicon glyphicon-random"></span> 隨機</a>
+	        </li>
+	        <li>
+	            <a href="#"><span class="glyphicon glyphicon-film"></span> 影片1</a>
+	        </li>
+	        <li>
+	            <a href="#"><span class="glyphicon glyphicon-film"></span> 影片2</a>
+	        </li>
+	        <li>
+	            <a href="#"><span class="glyphicon glyphicon-film"></span> 影片3</a>
+	        </li>
+	        <li>
+	            <a href="#"><span class="glyphicon glyphicon-film"></span> 影片4</a>
+	        </li>
+	        <li>
+	            <a href="#"><span class="glyphicon glyphicon-film"></span> 影片5</a>
+	        </li>
+	        <li>
+	            <a href="#"><span class="glyphicon glyphicon-film"></span> 影片6</a>
+	        </li>
+	        <li>
+	            <a href="#"><span class="glyphicon glyphicon-film"></span> 影片7</a>
+	        </li>
+	        <li>
+	            <a href="#"><span class="glyphicon glyphicon-film"></span> 影片8</a>
+	        </li>
+	        <li>
+	            <a href="#"><span class="glyphicon glyphicon-film"></span> 影片9</a>
+	        </li>
+	    </ul>
+	</div>
+	<!-- /sidebar-wrapper -->
+
+	<!-- page content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <a style="font-size:36px" href="#menu-toggle" class="btn btn-default" id="menu-toggle">邊欄</a>
+                    {% block page_content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /page-content-wrapper -->
+
+    <div id="sidebar-right" style="float:right,background:#FFF">
+    	<ul class="sidebar-nav"></ul>
+    </div>
+</div>
+<!-- /wrapper -->
+
+<!-- jQuery -->
+<script src="/static/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/static/js/bootstrap.min.js"></script>
+
+<!-- Menu Toggle Script -->
+<script>
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+</script>
+</body>
+
+{% endblock %}
+<!-- /content -->
