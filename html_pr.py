@@ -1,6 +1,23 @@
+import os.path
+
+def pr():
+    with open('44509.txt','r',encoding='utf-8') as f:
+        txt = f.read()
+    txt = txt.split(',')
+    for i in range(1,len(txt)+1):
+        if len(txt[i-1])>20:
+            txt[i-1] = ' ' + str(i//5+1) + '. ' + txt[i-1] + '<br>'
+        else:
+            txt[i-1] = txt[i-1] + '<br>'
+    txt = (',').join(txt)
+    txt = txt.replace('(','<button type="button" class="btn btn-Default">')
+    txt = txt.replace(')','</button>')
+    return(txt.replace(',','').replace(';',','))
+def oz():
+    q1 ="""
 {% extends "base.html" %}
 
-{% block title %}Built-En{% endblock %}
+{% block title %}Build-En{% endblock %}
 
 {% block page_content %}
 <h1><strong>第 壹 部 分 ： 單 選 題</strong></h1>
@@ -9,14 +26,9 @@
     <!--<div id="home" class="tab-pane fade in active">-->
     <div id="home" class="tab-pane fade in active">
         <h2><strong>一、詞 彙 題</strong></h2><h3 style="line-height:40px">
-        1.	Posters of the local rock band were displayed in store windows to promote the sale of their _____ tickets.
-		<br><button type="button" class="btn btn-Default">A</button>
- 		journey <br><button type="button" class="btn btn-Default">B</button> traffic <br><button type="button" class="btn btn-Default">C</button> concert <br><button type="button" class="btn btn-Default">D</button> record<br>
-        2.	After the police arrive, they will begin to interview the people who ______ in the jewelry store at the time of the robbery.<br><button type="button" class="btn btn-Default">A</button> have been <br><button type="button" class="btn btn-Default">B</button> will be <br><button type="button" class="btn btn-Default">C</button> were <br><button type="button" class="btn btn-Default">D</button> are<br>
-        3.If a typist wishes to type rapidly, he _______ develop a rhythmic movement of his fingers.
-        <br><button type="button" class="btn btn-Default">A</button>used to	<br><button type="button" class="btn btn-Default">B</button>must	<br><button type="button" class="btn btn-Default">C</button>would	<br><button type="button" class="btn btn-Default">D</button>had to<br>
-        4._______ newspaper reports, flooding in the area near the river due to the storm has been much more serious than expected.
-        <br><button type="button" class="btn btn-Default">A</button>As  <br><button type="button" class="btn btn-Default">B</button>For  <br><button type="button" class="btn btn-Default">C</button>Including some  <br><button type="button" class="btn btn-Default">D</button>According to<br></h3>
+    """
+    q2 ="""
+        <br></h3>
     </div>
     <!--<div id="menu1" class="tab-pane fade">-->
     <div id="menu1" class="tab-pane fade in active">
@@ -34,3 +46,12 @@
 </div>
 <!--h1><strong>第 貳 部 分 ： 非 選 擇 題</strong></h1-->
 {% endblock %}
+    """
+    quiz = q1 + pr() + q2
+    return quiz
+
+completeName = os.path.join(r'F:\Python3.5.2_x64\PythonProjects\template_demo\templates\\', "quiz.html")
+with open(completeName,'w',encoding='utf-8') as f:
+    f.write(oz())
+if __name__=="__main__":
+    print(pr())

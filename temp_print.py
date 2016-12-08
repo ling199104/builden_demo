@@ -78,7 +78,7 @@ def VocabularyQuiz(word,sentence):
     foo = []
     seq = sentence.replace(word,'____')
     #print(seq)
-    foo.append(seq.capitalize())
+    foo.append(seq.capitalize().replace(',',';'))
     r = req.get('http://www.thesaurus.com/browse/'+str(word)+'?s=t')
     soup = bs(r.text, "html.parser")
     soup = soup.find(class_="container-info antonyms")
@@ -121,4 +121,6 @@ def VocabularyQuiz(word,sentence):
 
 if __name__ == "__main__":
     Vid = 44509
-    print(GetSubtitle(Vid))
+    #print(GetSubtitle(Vid))
+    with open('44509.txt','w',encoding='utf-8') as f:
+        f.write(GetSubtitle(Vid))
